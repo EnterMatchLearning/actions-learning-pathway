@@ -29,6 +29,7 @@ jobs:
   deploy:
     needs: test
     permissions:
+      pages: write
       id-token: write
     environment:
       name: production
