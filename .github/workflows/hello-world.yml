@@ -1,6 +1,11 @@
 name: hello-world
 on:
   workflow_dispatch:
+    inputs:
+      config-path:
+        description: 'The config-path biatch!'
+        required: true
+        default: "lmao/lol"
   workflow_call:
     inputs:
       config-path:
@@ -19,8 +24,8 @@ jobs:
         run: echo "$(cat hello_world.txt)"
       - name: Adding markdown
         run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
-      # - name: Print config-path input
-      #   run: echo ${{ inputs.config-path }}
+      - name: Print config-path input
+        run: echo ${{ inputs.config-path }}
       # - name: Print envPAT secret
       #   run: echo ${{ secrets.envPAT }}
       
