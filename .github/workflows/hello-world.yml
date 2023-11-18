@@ -1,5 +1,6 @@
 name: hello-world
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       config-path:
@@ -16,7 +17,10 @@ jobs:
         uses: actions/checkout@v4.1.1
       - name: Say Hello
         run: echo "$(cat hello_world.txt)"
-      - name: Print config-path input
-        run: echo ${{ inputs.config-path }}
-      - name: Print envPAT secret
-        run: echo ${{ secrets.envPAT }}
+      - name: Adding markdown
+        run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
+      # - name: Print config-path input
+      #   run: echo ${{ inputs.config-path }}
+      # - name: Print envPAT secret
+      #   run: echo ${{ secrets.envPAT }}
+      
